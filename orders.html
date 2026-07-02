@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购买记录</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone-page" aria-label="购买记录">
+      <section class="screen orders-screen">
+        <header class="status-bar order-status-bar" aria-label="状态栏">
+          <time>12:05</time>
+          <div class="status-icons" aria-hidden="true">
+            <span class="signal"></span>
+            <span class="wifi"></span>
+            <span class="battery order-battery"><span>32</span></span>
+          </div>
+        </header>
+
+        <nav class="top-nav order-nav" aria-label="页面导航">
+          <a class="back-button order-back" href="./index.html" aria-label="返回购买页">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </a>
+          <h1>购买记录</h1>
+        </nav>
+
+        <section class="order-card" aria-labelledby="order-id">
+          <div class="order-card-header">
+            <h2 id="order-id">订单ID：1581725</h2>
+            <span class="order-status-success">支付成功</span>
+          </div>
+
+          <div class="order-divider" aria-hidden="true"></div>
+
+          <h3>组合套餐：4G流量+AI算力（年）</h3>
+
+          <div class="order-detail-list">
+            <p><span>支付渠道：</span>微信支付</p>
+            <p><span>支付金额：</span>79元/年</p>
+            <p><span>付款时间：</span>2026/06/25 18:24:50</p>
+          </div>
+        </section>
+
+        <section class="order-card" aria-labelledby="order-id-canceled">
+          <div class="order-card-header">
+            <h2 id="order-id-canceled">订单ID：1581724</h2>
+            <span class="order-status-canceled">未支付已取消</span>
+          </div>
+
+          <div class="order-divider" aria-hidden="true"></div>
+
+          <h3>组合套餐：4G流量+AI算力（月）</h3>
+
+          <div class="order-detail-list">
+            <p><span>支付渠道：</span>微信支付</p>
+            <p><span>支付金额：</span>19元/月</p>
+            <p><span>取消原因：</span>未支付</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
