@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>流量专区</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone-page" aria-label="流量专区">
+      <section class="screen">
+        <header class="status-bar" aria-label="状态栏">
+          <time>17:15</time>
+          <div class="status-icons" aria-hidden="true">
+            <span class="signal"></span>
+            <span class="wifi"></span>
+            <span class="battery"><span></span></span>
+          </div>
+        </header>
+
+        <nav class="top-nav" aria-label="页面导航">
+          <button class="back-button" type="button" aria-label="返回">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <h1>流量专区</h1>
+          <a class="record-link" href="./orders.html" aria-label="购买记录">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3h10a2 2 0 0 1 2 2v16l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2z" />
+              <path d="M9 8h6" />
+              <path d="M9 12h6" />
+              <path d="M9 16h4" />
+            </svg>
+          </a>
+        </nav>
+
+        <section class="usage-card" aria-labelledby="usage-title" data-card-status="已注销">
+          <h2 id="usage-title">
+            当前套餐：组合套餐（4G流量+AI算力）
+          </h2>
+          <p class="plan-validity">套餐有效期至：2029-05-30</p>
+
+          <div class="usage-grid">
+            <div class="usage-metric">
+              <p>本月已用流量</p>
+              <strong>2.68</strong>
+              <span>MB</span>
+            </div>
+            <div class="divider" aria-hidden="true"></div>
+            <div class="usage-metric">
+              <p>本月剩余流量</p>
+              <strong>1.00</strong>
+              <span>GB</span>
+            </div>
+          </div>
+        </section>
+
+        <p class="query-time">查询时间2026-05-11 11:49:36　数据更新可能存在延迟</p>
+
+        <section class="purchase-card" aria-labelledby="purchase-title">
+          <h2 id="purchase-title">「购买流量+AI算力」</h2>
+
+          <div class="plans" role="radiogroup" aria-label="套餐选择">
+            <article
+              class="plan-card plan-card-featured plan-card-selected"
+              role="radio"
+              aria-checked="true"
+              tabindex="0"
+              data-plan-name="组合套餐：4G流量+AI算力（年）"
+              data-plan-amount="79.00"
+              aria-label="推荐套餐，组合套餐：4G流量+AI算力（年）"
+            >
+              <span class="recommend-ribbon">推荐</span>
+              <div class="plan-card-main">
+                <h3>组合套餐：4G流量+AI算力（年）</h3>
+                <p class="plan-note">购买当月生效，连续12个月，每月1G流量和无限AI算力</p>
+              </div>
+              <div class="price">
+                <span class="currency">¥</span>
+                <strong>79</strong>
+                <span class="period">/年</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="purchase-actions">
+            <div
+              class="prototype-status-entry"
+              aria-label="卡状态（仅展示交互，实际不展示）"
+            >
+              <span>卡状态（仅展示交互，实际不展示）：<strong data-card-status-label>已注销</strong></span>
+              <select data-card-status-select aria-label="切换卡状态">
+                <option value="测试期">测试期（正常使用，可续费）</option>
+                <option value="已激活">已激活（正常使用，可续费）</option>
+                <option value="已停机">已停机（已过期，可续费）</option>
+                <option value="已注销" selected>已注销（不可续费）</option>
+                <option value="未知">未知（未获取）</option>
+              </select>
+            </div>
+            <p class="purchase-desc purchase-desc-below">
+              购买后预计10分钟到账，高峰时段或套餐已过期会有延时<br />
+              购买到账后有效期会自动增加
+            </p>
+            <button class="buy-button" type="button">立即购买</button>
+          </div>
+        </section>
+
+        <div class="payment-overlay" id="paymentOverlay" hidden>
+          <div class="payment-backdrop" data-close-payment></div>
+          <section
+            class="payment-sheet"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="paymentTitle"
+          >
+            <button
+              class="payment-close"
+              type="button"
+              aria-label="关闭支付弹窗"
+              data-close-payment
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12" />
+                <path d="M18 6L6 18" />
+              </svg>
+            </button>
+
+            <div class="payment-step payment-step-active" data-payment-step="order">
+              <h2 id="paymentTitle">请选择支付方式</h2>
+              <button class="payment-method-button" type="button" data-start-wechat>
+                <span class="wechat-pay-label">
+                  <span class="wechat-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 12.2l4 4L19 6.8" />
+                    </svg>
+                  </span>
+                  微信支付
+                </span>
+                <span class="payment-method-check" aria-hidden="true">✓</span>
+              </button>
+              <button class="payment-primary" type="button" data-start-wechat>
+                确定并支付
+              </button>
+              <span class="payment-home-indicator" aria-hidden="true"></span>
+            </div>
+
+            <div class="payment-step" data-payment-step="wechat">
+              <div class="wechat-pay-page">
+                <div class="wechat-pay-nav">
+                  <button
+                    class="wechat-back-button"
+                    type="button"
+                    aria-label="返回商户端"
+                    data-return-merchant
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <h2>微信支付</h2>
+                </div>
+                <div class="wechat-pay-body">
+                  <p class="wechat-pay-merchant">购买流量+AI算力</p>
+                  <p class="wechat-pay-amount">¥<span data-wechat-amount>79.00</span></p>
+                  <div class="wechat-pay-detail">
+                    <span>支付方式</span>
+                    <strong>微信支付</strong>
+                  </div>
+                  <button class="wechat-confirm-button" type="button" data-confirm-wechat>
+                    确认支付
+                  </button>
+                  <button
+                    class="wechat-cancel-button"
+                    type="button"
+                    data-return-merchant
+                  >
+                    返回商户端
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-step" data-payment-step="processing">
+              <div class="wechat-loading" aria-hidden="true">
+                <span></span>
+              </div>
+              <h2>支付处理中</h2>
+              <p>正在向微信支付确认结果</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="app-toast" role="status" aria-live="polite" hidden></div>
+      </section>
+    </main>
+    <script>
+      const planCards = Array.from(document.querySelectorAll(".plan-card"));
+      const usageCard = document.querySelector(".usage-card");
+      const cardStatusLabel = document.querySelector("[data-card-status-label]");
+      const cardStatusSelect = document.querySelector("[data-card-status-select]");
+      const buyButton = document.querySelector(".buy-button");
+      const paymentOverlay = document.querySelector("#paymentOverlay");
+      const startWechatButtons = Array.from(
+        document.querySelectorAll("[data-start-wechat]"),
+      );
+      const confirmWechatButton = document.querySelector("[data-confirm-wechat]");
+      const merchantReturnButtons = Array.from(
+        document.querySelectorAll("[data-return-merchant]"),
+      );
+      const wechatAmount = document.querySelector("[data-wechat-amount]");
+      const paymentSteps = Array.from(document.querySelectorAll(".payment-step"));
+      const toast = document.querySelector(".app-toast");
+      const renewableCardStatuses = new Set(["测试期", "已激活", "已停机"]);
+      let selectedPlanCard =
+        document.querySelector(".plan-card-selected") || planCards[0];
+      let paymentTimer;
+      let toastTimer;
+
+      function selectPlan(selectedCard) {
+        selectedPlanCard = selectedCard;
+
+        planCards.forEach((card) => {
+          const isSelected = card === selectedCard;
+
+          card.classList.toggle("plan-card-selected", isSelected);
+          card.setAttribute("aria-checked", String(isSelected));
+          card.setAttribute("tabindex", isSelected ? "0" : "-1");
+        });
+
+        const planName =
+          selectedCard.dataset.planName ||
+          selectedCard.querySelector("h3")?.textContent.trim();
+
+        if (planName) {
+          buyButton.setAttribute("aria-label", `立即购买${planName}`);
+        }
+      }
+
+      function showPaymentStep(stepName) {
+        paymentSteps.forEach((step) => {
+          step.classList.toggle(
+            "payment-step-active",
+            step.dataset.paymentStep === stepName,
+          );
+        });
+      }
+
+      function getSelectedAmount() {
+        return selectedPlanCard.dataset.planAmount || "79.00";
+      }
+
+      function selectedPlanRequiresCardRenewal() {
+        const planName =
+          selectedPlanCard.dataset.planName ||
+          selectedPlanCard.querySelector("h3")?.textContent.trim() ||
+          "";
+
+        return planName.includes("4G流量");
+      }
+
+      function getCurrentCardStatus() {
+        return usageCard.dataset.cardStatus || "未知";
+      }
+
+      function getCardStatusDisplay(cardStatus) {
+        const statusDisplayMap = {
+          测试期: "正常使用，可续费",
+          已激活: "正常使用，可续费",
+          已停机: "已过期，可续费",
+          已注销: "已注销，不可续费",
+          未知: "未获取",
+        };
+
+        return statusDisplayMap[cardStatus] || "未获取";
+      }
+
+      function setCurrentCardStatus(cardStatus) {
+        usageCard.dataset.cardStatus = cardStatus;
+        cardStatusLabel.textContent = getCardStatusDisplay(cardStatus);
+      }
+
+      function validateCardStatusBeforePurchase() {
+        const cardStatus = getCurrentCardStatus();
+
+        if (renewableCardStatuses.has(cardStatus)) {
+          return { canContinue: true };
+        }
+
+        if (cardStatus === "已注销") {
+          return { canContinue: false, redirectUrl: "./renew-unavailable.html" };
+        }
+
+        return { canContinue: false, message: "网络异常，请重试" };
+      }
+
+      function openPaymentFlow() {
+        if (selectedPlanRequiresCardRenewal()) {
+          const validation = validateCardStatusBeforePurchase();
+
+          if (!validation.canContinue) {
+            if (validation.redirectUrl) {
+              window.location.href = validation.redirectUrl;
+              return;
+            }
+
+            showToast(validation.message);
+            return;
+          }
+        }
+
+        showPaymentStep("order");
+        paymentOverlay.hidden = false;
+        document.body.classList.add("payment-open");
+      }
+
+      function closePaymentFlow() {
+        window.clearTimeout(paymentTimer);
+        paymentOverlay.hidden = true;
+        paymentOverlay.classList.remove("payment-overlay-full");
+        document.body.classList.remove("payment-open");
+        showPaymentStep("order");
+      }
+
+      function showToast(message) {
+        window.clearTimeout(toastTimer);
+        toast.innerHTML = message;
+        toast.hidden = false;
+        toast.classList.add("app-toast-visible");
+
+        toastTimer = window.setTimeout(() => {
+          toast.classList.remove("app-toast-visible");
+          toast.hidden = true;
+        }, 1800);
+      }
+
+      function startWechatPayment() {
+        wechatAmount.textContent = getSelectedAmount();
+        paymentOverlay.classList.add("payment-overlay-full");
+        showPaymentStep("wechat");
+      }
+
+      function returnMerchantWithoutPaying() {
+        window.clearTimeout(paymentTimer);
+        window.location.href = "./payment-status.html?status=canceled";
+      }
+
+      function confirmWechatPayment() {
+        showPaymentStep("processing");
+        paymentTimer = window.setTimeout(() => {
+          window.location.href = "./payment-status.html?status=success";
+        }, 1200);
+      }
+
+      planCards.forEach((card) => {
+        card.addEventListener("click", () => selectPlan(card));
+        card.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") {
+            return;
+          }
+
+          event.preventDefault();
+          selectPlan(card);
+        });
+      });
+
+      buyButton.addEventListener("click", openPaymentFlow);
+      cardStatusSelect.addEventListener("change", (event) => {
+        setCurrentCardStatus(event.target.value);
+        showToast(`已切换为${getCardStatusDisplay(event.target.value)}`);
+      });
+      startWechatButtons.forEach((button) => {
+        button.addEventListener("click", startWechatPayment);
+      });
+      confirmWechatButton.addEventListener("click", confirmWechatPayment);
+      merchantReturnButtons.forEach((button) => {
+        button.addEventListener("click", returnMerchantWithoutPaying);
+      });
+      document.querySelectorAll("[data-close-payment]").forEach((control) => {
+        control.addEventListener("click", closePaymentFlow);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !paymentOverlay.hidden) {
+          closePaymentFlow();
+        }
+      });
+    </script>
+  </body>
+</html>

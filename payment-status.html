@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购买提示</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone-page" aria-label="购买提示">
+      <section class="screen payment-status-screen">
+        <header class="status-bar" aria-label="状态栏">
+          <time>12:05</time>
+          <div class="status-icons" aria-hidden="true">
+            <span class="signal"></span>
+            <span class="wifi"></span>
+            <span class="battery"><span></span></span>
+          </div>
+        </header>
+
+        <nav class="top-nav" aria-label="页面导航">
+          <a class="back-button" href="./index.html" aria-label="返回流量专区页面">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </a>
+          <h1>购买提示</h1>
+        </nav>
+
+        <section class="payment-result" aria-live="polite">
+          <div class="payment-result-icon" data-result-icon aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path data-result-icon-path d="M5 12.5l4.2 4L19 7" />
+            </svg>
+          </div>
+          <h2 data-result-title>支付成功</h2>
+          <p data-result-desc>
+            购买后预计10分钟到账，高峰时段或套餐已过期会有延时<br />
+            购买到账后有效期会自动增加
+          </p>
+          <a class="payment-result-link" href="./index.html" aria-label="返回流量专区页面">
+            返回
+          </a>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const status = new URLSearchParams(window.location.search).get("status");
+      const isCanceled = status === "canceled";
+      const resultPanel = document.querySelector(".payment-result");
+      const resultIcon = document.querySelector("[data-result-icon]");
+      const iconPath = document.querySelector("[data-result-icon-path]");
+      const resultTitle = document.querySelector("[data-result-title]");
+      const resultDesc = document.querySelector("[data-result-desc]");
+
+      if (isCanceled) {
+        document.title = "购买提示";
+        resultPanel.classList.add("payment-result-canceled");
+        resultIcon.classList.add("payment-result-icon-canceled");
+        iconPath.setAttribute("d", "M7 7l10 10M17 7 7 17");
+        resultTitle.textContent = "订单已取消";
+        resultDesc.textContent = "未支付成功，订单已取消，请重新发起";
+      }
+    </script>
+  </body>
+</html>
